@@ -55,6 +55,7 @@
 
 <script>
   function checkAccess() {
+    console.log("Nguồn truy cập hiện tại: " + document.referrer);
   var referrer = document.referrer.toLowerCase();
   var lockScreen = document.getElementById('lock-screen');
   
