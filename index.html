@@ -59,16 +59,17 @@
     var lockScreen = document.getElementById('lock-screen');
     
     // Nếu không đến từ Linkvertise, hãy hiện màn hình khóa
-    if (referrer.indexOf("linkvertise.com") === -1) {
-      lockScreen.style.display = 'flex';
+    if (referrer.indexOf("linkvertise") === -1 && referrer.indexOf("link-hub") === -1) {
+    lockScreen.style.display = 'flex';
     }
   }
 
   function goToLinkvertise() {
     // Thay link dưới đây bằng link Linkvertise của bạn
     function goToLinkvertise() {
-  window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
+    window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
     }
+    
     
 
   // Chạy kiểm tra khi tải trang
