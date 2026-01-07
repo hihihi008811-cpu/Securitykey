@@ -45,6 +45,34 @@
                                                                                                                                                                                                             </style>
                                                                                                                                                                                                             <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript></head>
                                                                                                                                                                                                             <body>
+                                                                                                                                                                                                              <div id="lock-screen" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; color: #00f2ff; text-align: center; font-family: 'Courier New', Courier, monospace;">
+    <h1 style="text-shadow: 0 0 10px #00f2ff;">PROTOCOL LOCKED</h1>
+    <p>Bạn cần vượt link để nhận mã Daily Key mới nhất!</p>
+    <button onclick="goToLinkvertise()" style="background: transparent; border: 2px solid #00f2ff; color: #00f2ff; padding: 15px 30px; cursor: pointer; box-shadow: 0 0 15px #00f2ff;">
+        LẤY KEY TẠI LINKVERTISE
+    </button>
+</div>
+
+<script>
+  function checkAccess() {
+    var referrer = document.referrer.toLowerCase();
+    var lockScreen = document.getElementById('lock-screen');
+    
+    // Nếu không đến từ Linkvertise, hãy hiện màn hình khóa
+    if (referrer.indexOf("linkvertise.com") === -1) {
+      lockScreen.style.display = 'flex';
+    }
+  }
+
+  function goToLinkvertise() {
+    // Thay link dưới đây bằng link Linkvertise của bạn
+    window.location.href = "https://linkvertise.com/cua-ban"; 
+  }
+
+  // Chạy kiểm tra khi tải trang
+  window.onload = checkAccess;
+</script>
+                                                                                                                                                                                                              
                                                                                                                                                                                                               <app-root></app-root>
                                                                                                                                                                                                               <script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
                                                                                                                                                                                                               </body></html>
