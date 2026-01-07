@@ -56,15 +56,23 @@
 <script>
   function checkAccess() {
   var referrer = document.referrer.toLowerCase();
+  var urlParams = new URLSearchParams(window.location.search);
   var lockScreen = document.getElementById('lock-screen');
   
-  // Kiểm tra nếu nguồn KHÔNG chứa "linkvertise" VÀ KHÔNG chứa "link-hub"
-  if (referrer.indexOf("linkvertise") === -1 && referrer.indexOf("link-hub") === -1) {
-    lockScreen.style.display = 'flex'; // Hiện màn hình khóa
+  // Điều kiện 1: Đến từ Linkvertise/Link-hub
+  var isFromLinkvertise = referrer.indexOf("linkvertise") !== -1 || referrer.indexOf("link-hub") !== -1;
+  
+  // Điều kiện 2: Có "thẻ bài" bí mật trong link
+  var hasAccessKey = urlParams.get('access') === 'granted';
+
+  // Nếu thỏa mãn 1 trong 2 thì mở khóa, ngược lại thì khóa
+  if (isFromLinkvertise || hasAccessKey) {
+    lockScreen.style.display = 'none';
   } else {
-    lockScreen.style.display = 'none'; // Ẩn màn hình khóa nếu hợp lệ
+    lockScreen.style.display = 'flex';
   }
 }
+  
 
 function goToLinkvertise() {
   // Mở link rút gọn của bạn trong tab mới
