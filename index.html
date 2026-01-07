@@ -54,24 +54,18 @@
 </div>
 
 <script>
-  function checkAccess() {
-  var referrer = document.referrer.toLowerCase();
+function checkAccess() {
   var urlParams = new URLSearchParams(window.location.search);
   var lockScreen = document.getElementById('lock-screen');
   
-  // Điều kiện 1: Đến từ Linkvertise/Link-hub
-  var isFromLinkvertise = referrer.indexOf("linkvertise") !== -1 || referrer.indexOf("link-hub") !== -1;
-  
-  // Điều kiện 2: Có "thẻ bài" bí mật trong link
-  var hasAccessKey = urlParams.get('access') === 'granted';
-
-  // Nếu thỏa mãn 1 trong 2 thì mở khóa, ngược lại thì khóa
-  if (isFromLinkvertise || hasAccessKey) {
-    lockScreen.style.display = 'none';
+  // Kiểm tra xem trong link có chữ ?access=granted không
+  if (urlParams.get('access') === 'granted') {
+    lockScreen.style.display = 'none'; // Mở khóa ngay lập tức
   } else {
-    lockScreen.style.display = 'flex';
+    lockScreen.style.display = 'flex'; // Vẫn khóa nếu vào trực tiếp
   }
 }
+  
   
 
 function goToLinkvertise() {
