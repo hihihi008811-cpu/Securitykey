@@ -45,63 +45,66 @@
                                                                                                                                                                                                             </style>
                                                                                                                                                                                                             <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript></head>
                                                                                                                                                                                                             <body>
-                                                                                                                                                                                                              <
-                                                                                                                                                                                                              
-                                                                                                                                                                                                              <app-root></app-root>
-                                                                                                                                                                                                              <script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
-                                                                                                                                                                                                              </body>
-                                                                                                                                                                                                                <style>
-  #lock-screen {
-    display: flex !important; /* Luôn hiện khi mới vào */
-    position: fixed !important;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: #000 !important; /* Nền đen tuyệt đối */
-    z-index: 999999 !important; /* Nằm trên cùng của mọi thứ */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #00f2ff;
-    font-family: sans-serif;
-    text-align: center;
-  }
-  .lock-btn {
-    margin-top: 20px;
-    padding: 15px 30px;
-    border: 2px solid #00f2ff;
-    background: transparent;
-    color: #00f2ff;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-</style>
-
-<div id="lock-screen">
-    <h1 style="text-shadow: 0 0 10px #00f2ff;">ACCESS RESTRICTED</h1>
-    <p>Hệ thống yêu cầu kích hoạt Daily Key 2026</p>
-    <button class="lock-btn" onclick="goToLinkvertise()">LẤY KEY TẠI LINKVERTISE</button>
-</div>
-
-<script>
-  function checkAccess() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lock = document.getElementById('lock-screen');
-    
-    // Nếu thấy "chìa khóa" ?access=granted thì mới cho ẩn màn hình khóa
-    if (urlParams.get('access') === 'granted') {
-      lock.style.setProperty('display', 'none', 'important');
+  <style>
+    #lock-screen {
+      display: flex !important;
+      position: fixed !important;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #000 !important;
+      z-index: 999999 !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #00f2ff;
+      font-family: 'Rajdhani', sans-serif;
+      text-align: center;
     }
-  }
+    .lock-btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      border: 2px solid #00f2ff;
+      background: transparent;
+      color: #00f2ff;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px #00f2ff;
+    }
+  </style>
 
-  function goToLinkvertise() {
-    window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
-  }
+  <div id="lock-screen">
+      <h1 style="text-shadow: 0 0 15px #00f2ff; font-size: 2.5rem;">ACCESS RESTRICTED</h1>
+      <p style="margin-top: 10px;">Hệ thống yêu cầu kích hoạt Daily Key 2026</p>
+      <button class="lock-btn" onclick="goToLinkvertise()">LẤY KEY TẠI LINKVERTISE</button>
+  </div>
 
-  // Chạy lệnh kiểm tra ngay lập tức
-  checkAccess();
-  // Chạy lại lần nữa khi trang load xong hoàn toàn cho chắc chắn
-  window.onload = checkAccess;
-</script>
+  <script>
+    function checkAccess() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lock = document.getElementById('lock-screen');
+      if (urlParams.get('access') === 'granted') {
+        lock.style.setProperty('display', 'none', 'important');
+      }
+    }
+    function goToLinkvertise() {
+      window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
+    }
+    checkAccess();
+    window.onload = checkAccess;
+  </script>
+
+  <app-root></app-root>
+
+  <script src="runtime.js" type="module"></script>
+  <script src="polyfills.js" type="module"></script>
+  <script src="main.js" type="module"></script>
+                                                                                                                                                                                                            </body>
+  
+                                                                                                                                                                                                              
+                                                                                                                                                                                                              
+                                                                                                                                                                                                              
+
+
   
 
 </html>
