@@ -55,30 +55,23 @@
 
 <script>
   function checkAccess() {
-    console.log("Nguồn truy cập hiện tại: " + document.referrer);
   var referrer = document.referrer.toLowerCase();
   var lockScreen = document.getElementById('lock-screen');
   
-  // NẾU nguồn KHÔNG chứa "linkvertise" VÀ KHÔNG chứa "link-hub"
-  // THÌ hiện màn hình khóa
+  // Kiểm tra nếu nguồn KHÔNG chứa "linkvertise" VÀ KHÔNG chứa "link-hub"
   if (referrer.indexOf("linkvertise") === -1 && referrer.indexOf("link-hub") === -1) {
-    lockScreen.style.display = 'flex';
+    lockScreen.style.display = 'flex'; // Hiện màn hình khóa
   } else {
-    lockScreen.style.display = 'none'; // Chỉ mở khi đi từ Linkvertise về
+    lockScreen.style.display = 'none'; // Ẩn màn hình khóa nếu hợp lệ
   }
 }
-  
 
-  function goToLinkvertise() {
-    // Thay link dưới đây bằng link Linkvertise của bạn
-    function goToLinkvertise() {
-    window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
-    }
-    
-    
+function goToLinkvertise() {
+  // Mở link rút gọn của bạn trong tab mới
+  window.open("https://link-hub.net/2656562/y4whkAQaVHgc", "_blank");
+}
 
-  // Chạy kiểm tra khi tải trang
-  window.onload = checkAccess;
+window.onload = checkAccess;
 </script>
                                                                                                                                                                                                               
                                                                                                                                                                                                               <app-root></app-root>
