@@ -55,16 +55,20 @@
 
 <script>
 function checkAccess() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var lockScreen = document.getElementById('lock-screen');
+  // Lấy các tham số từ URL (ví dụ cái đuôi ?access=granted)
+  const urlParams = new URLSearchParams(window.location.search);
+  const lockScreen = document.getElementById('lock-screen');
   
-  // Kiểm tra xem trong link có chữ ?access=granted không
+  // KIỂM TRA: Chỉ cho vào nếu có "chìa khóa" đúng
   if (urlParams.get('access') === 'granted') {
-    lockScreen.style.display = 'none'; // Mở khóa ngay lập tức
+    lockScreen.style.display = 'none'; // Ẩn màn hình khóa
+    console.log("Access Granted!");
   } else {
-    lockScreen.style.display = 'flex'; // Vẫn khóa nếu vào trực tiếp
+    lockScreen.style.display = 'flex'; // Hiện màn hình khóa bắt vượt link
+    console.log("Access Denied!");
   }
 }
+  
   
   
 
